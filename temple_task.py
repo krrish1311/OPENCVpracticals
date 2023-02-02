@@ -1,0 +1,66 @@
+import cv2
+import numpy as np
+temple =np.zeros((700,500,3),np.uint8)
+temple[:,:]=(255,255,225)
+temple=cv2.rectangle(temple,(99,299),(399,699),[140,230,240],-1)
+temple=cv2.rectangle(temple,(149,399),(349,699),[255,255,255],-1)
+temple=cv2.rectangle(temple,(247,49),(251,149),[0,70,255],3)
+temple=cv2.rectangle(temple,(149,149),(349,299),[0,140,255],-1)
+#to fill triangle
+pt1 = (149,149)
+pt2 = (149,299)
+pt3 = (99,299)
+cv2.circle(temple, pt1, 2, (0,140,255), -1)
+cv2.circle(temple, pt2, 2, (0,140,255), -1)
+cv2.circle(temple, pt3, 2, (0,140,255), -1)
+triangle_cnt = np.array( [pt1, pt2, pt3] )
+
+cv2.drawContours(temple, [triangle_cnt], 0, (0,140,255), -1)
+c1 = (349,149)
+c2 = (349,299)
+c3 = (399,299)
+cv2.circle(temple, c1, 2, (0,140,255), -1)
+cv2.circle(temple, c2, 2, (0,140,255), -1)
+cv2.circle(temple, c3, 2, (0,140,255), -1)
+triangle_cnt = np.array( [c1, c2, c3] )
+
+temple=cv2.drawContours(temple, [triangle_cnt], 0, (0,140,255), -1)
+
+#to fill triangle
+pt1 = (197,49)
+pt2 = (247,49)
+pt3 = (247,74)
+cv2.circle(temple, pt1, 2, (0,140,255), -1)
+cv2.circle(temple, pt2, 2, (0,140,255), -1)
+cv2.circle(temple, pt3, 2, (0,140,255), -1)
+triangle_cnt = np.array( [pt1, pt2, pt3] )
+
+cv2.drawContours(temple, [triangle_cnt], 0, (0,140,255), -1)
+c1 = (197,74)
+c2 = (247,74)
+c3 = (247,49)
+cv2.circle(temple, c1, 2, (0,140,255), -1)
+cv2.circle(temple, c2, 2, (0,140,255), -1)
+cv2.circle(temple, c3, 2, (0,140,255), -1)
+triangle_cnt = np.array( [c1, c2, c3] )
+
+temple=cv2.drawContours(temple, [triangle_cnt], 0, (0,140,255), -1)
+
+
+temple=cv2.line(temple,(99,299),(99,699),[0,0,255],5)
+temple=cv2.line(temple,(149,399),(149,699),[0,0,255],5)
+temple=cv2.line(temple,(349,399),(349,699),[0,0,255],5)
+temple=cv2.line(temple,(399,299),(399,699),[0,0,255],5)
+temple=cv2.line(temple,(99,299),(399,299),[0,0,255],5)
+temple=cv2.line(temple,(149,399),(349,399),[0,0,255],5)
+temple=cv2.line(temple,(149,149),(99,299),[0,0,255],5)
+temple=cv2.line(temple,(349,149),(399,299),[0,0,255],5)
+temple=cv2.line(temple,(197,49),(247,49),[0,0,255],3)
+temple=cv2.line(temple,(197,74),(247,74),[0,0,255],3)
+temple=cv2.line(temple,(197,49),(217,61),[0,0,255],3)
+temple=cv2.line(temple,(197,74),(217,61),[0,0,255],3)
+temple=cv2.line(temple,(149,149),(349,149),[0,0,255],5)
+
+cv2.imshow("hi" ,temple)
+cv2.waitKey()
+cv2.destroyAllWindows()
